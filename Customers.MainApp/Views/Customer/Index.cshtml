@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Customer List";
+}
+
+<div>
+    <h1 class="display-4">Customer List</h1>
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th class="text-right">Actions</th>
+            </tr>
+
+            @foreach (Customer customer in ViewData.Model)
+            {
+                
+                <tr>
+                    <td>@customer.Id</td>
+                    <td>@customer.FirstName</td>
+                    <td>@customer.Surname</td>
+                    <td>@customer.Email</td>
+                    <td>@customer.PhoneNumber</td>
+                    <td class="text-right">
+                        <a class="btn btn-primary" asp-controller="Customer" asp-action="Update" asp-route-id="@customer.Id">Edit</a>
+                        <a class="btn btn-danger" asp-controller="Customer" asp-action="Delete" asp-route-id="@customer.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> <a class="btn btn-success float-right" asp-controller="Customer" asp-action="Add">Add</a> </td>
+            </tr>
+        </table>
+
+        
+</div>

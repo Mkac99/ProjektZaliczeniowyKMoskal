@@ -1,0 +1,30 @@
+﻿@using Customers.CommonModels
+@{
+    ViewData["Title"] = " Tracking Logs";
+}
+
+<div>
+    <h1 class="display-4"> Tracking Logs </h1>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Event Date</th>
+            <th>Event Type</th>
+            <th>User IP Address</th>
+            <th>Customer Id</th>
+            <th>Update Page URL</th>
+        </tr>
+        @foreach (TrackingLogEvent trackingLogEvent in ViewData.Model)
+        {
+
+            <tr>
+                <td>@trackingLogEvent.EventDate</td>
+                <td>@trackingLogEvent.EventTypeId</td>
+                <td>@trackingLogEvent.UserIPAddress</td>
+                <td>@trackingLogEvent.CustomerId</td>
+                <td><a href="@trackingLogEvent.UpdatePageUrl">@trackingLogEvent.UpdatePageUrl</a></td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -1,0 +1,33 @@
+﻿@model Customer
+@{
+    ViewData["Title"] = "Confirm Delete Customer";
+    var customer = ViewData.Model;
+}
+
+
+<form asp-action="Delete" method="post">
+    <div class="container w-50 justify-content-center">
+        <div class="form-group row">
+            <label for="inputFirstName">First Name</label>
+            <input type="text" class="form-control" id="inputFirstName"
+                   asp-for="FirstName" value="@customer.FirstName" readonly>
+        </div>
+        <div class="form-group row">
+            <label for="inputSurname">Surname</label>
+            <input type="text" class="form-control" id="inputSurname"
+                   asp-for="Surname" value="@customer.Surname" readonly>
+        </div>
+        <div class="form-group row">
+            <label for="inputEmailAddress">Email address</label>
+            <input type="email" class="form-control" id="inputEmailAddress"
+                   asp-for="Email" value="@customer.Email" readonly>
+        </div>
+        <div class="form-group row">
+            <label for="inputPhoneNumber">Phone Number:</label>
+            <input type="tel" class="form-control" id="inputPhoneNumber"
+                   asp-for="PhoneNumber" value="@customer.PhoneNumber" readonly>
+        </div>
+        <button type="submit" class="btn btn-success float-right">Confirm</button>
+        <a class="btn btn-danger float-right mr-2" asp-controller="Customer" asp-action="Index">Cancel</a>
+    </div>
+</form>
